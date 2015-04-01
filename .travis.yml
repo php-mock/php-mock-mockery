@@ -1,0 +1,36 @@
+language: php
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+env:
+  - MOCKERY_VERSION=dev-master
+  - MOCKERY_VERSION=~0.9.0
+  - MOCKERY_VERSION=~0.8.0
+  - MOCKERY_VERSION=~0.7.0
+
+php:
+  - 7.0
+  - 5.6
+  - 5.5
+  - 5.4
+  - hhvm
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: hhvm
+
+install:
+  - composer require mockery/mockery:${MOCKERY_VERSION}
+  - composer require squizlabs/php_codesniffer
+  - composer require phpmd/phpmd
+
+script:
+  - vendor/bin/phpunit
+  - vendor/bin/phpcs --standard=PSR2 classes/ tests/
+  - vendor/bin/phpmd classes/ text cleancode,codesize,controversial,design,naming,unusedcode
+
