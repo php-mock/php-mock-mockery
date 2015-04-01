@@ -3,11 +3,39 @@
 This package integrates the function mock library
 [PHP-Mock](https://github.com/php-mock/php-mock) with Mockery.
 
-# Requirements
-
 # Installation
 
+Use [Composer](https://getcomposer.org/):
+
+```json
+{
+    "require-dev": {
+        "php-mock/mockery": "0.1"
+    }
+}
+```
+
 # Usage
+
+[`PHPMockery::mock()`](http://php-mock.github.io/mockery/api/class-phpmock.mockery.PHPMockery.html#_mock)
+let's you build a function mock which can be equiped
+with Mockery's expectations. After your test you'll have to disable all created
+function mocks by calling `Mockery::close()`.
+
+## Example
+
+```php
+<?php
+
+namespace foo;
+
+use phpmock\mockery\PHPMockery;
+
+$mock = PHPMockery::mock(__NAMESPACE__, "time")->andReturn(3);
+assert (3 == time());
+
+\Mockery::close();
+```
 
 # License and authors
 
