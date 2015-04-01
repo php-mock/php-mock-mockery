@@ -3,6 +3,10 @@
 This package integrates the function mock library
 [PHP-Mock](https://github.com/php-mock/php-mock) with Mockery.
 
+## Requirements and restrictions
+
+* Mockery-0.8 or greater.
+
 # Installation
 
 Use [Composer](https://getcomposer.org/):
