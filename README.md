@@ -14,7 +14,7 @@ Use [Composer](https://getcomposer.org/):
 ```json
 {
     "require-dev": {
-        "php-mock/php-mock-mockery": "0.1"
+        "php-mock/php-mock-mockery": "0.2"
     }
 }
 ```
