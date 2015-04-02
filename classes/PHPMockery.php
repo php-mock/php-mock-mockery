@@ -4,7 +4,7 @@ namespace phpmock\mockery;
 
 use Mockery;
 use Mockery\Expectation;
-use malkusch\phpmock\MockBuilder;
+use phpmock\MockBuilder;
 use phpmock\integration\MockDelegateFunctionBuilder;
 
 /**

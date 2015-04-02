@@ -2,7 +2,7 @@
 
 namespace phpmock\mockery;
 
-use malkusch\phpmock\Deactivatable;
+use phpmock\Deactivatable;
 use Mockery\Mock;
 
 /**

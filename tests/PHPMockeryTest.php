@@ -2,7 +2,7 @@
 
 namespace phpmock\mockery;
 
-use malkusch\phpmock\AbstractMockTest;
+use phpmock\AbstractMockTest;
 use Mockery;
 
 /**
