@@ -18,7 +18,7 @@
     },
     "require": {
         "php": ">=5.5",
-        "mockery/mockery": "^0.8",
+        "mockery/mockery": "^0.9",
         "php-mock/php-mock-integration": "^0.4"
     },
     "require-dev": {
