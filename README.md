@@ -7,12 +7,8 @@ This package integrates the function mock library
 
 Use [Composer](https://getcomposer.org/):
 
-```json
-{
-    "require-dev": {
-        "php-mock/php-mock-mockery": "0.2"
-    }
-}
+```sh
+composer require php-mock/php-mock-mockery
 ```
 
 # Usage
