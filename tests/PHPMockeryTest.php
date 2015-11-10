@@ -35,6 +35,32 @@ class PHPMockeryTest extends AbstractMockTest
     }
     
     /**
+     * Tests passing by reference as described in Mockery's manual with Mockery::on().
+     *
+     * @test
+     * @link http://docs.mockery.io/en/latest/reference/pass_by_reference_behaviours.html
+     */
+    public function testMockeryPassByReference()
+    {
+        PHPMockery::mock(__NAMESPACE__, "exec")->with(
+            "command",
+            \Mockery::on(function (&$output) {
+                $output = "output";
+                return true;
+            }),
+            \Mockery::on(function (&$return_var) {
+                $return_var = "return_var";
+                return true;
+            })
+        )->once();
+            
+        exec("command", $output, $return_var);
+        
+        $this->assertEquals("output", $output);
+        $this->assertEquals("return_var", $return_var);
+    }
+    
+    /**
      * Workaround for Mockery's issue 268.
      *
      * Mockery-0.9 introduced global memoization of reflection methods. This
