@@ -21,6 +21,11 @@ class PHPMockeryTest extends AbstractMockTest
     {
         Mockery::close();
     }
+    
+    protected function defineFunction($namespace, $functionName)
+    {
+        PHPMockery::define($namespace, $functionName);
+    }
 
     protected function mockFunction($namespace, $functionName, callable $function)
     {

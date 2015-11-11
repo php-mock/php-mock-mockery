@@ -33,6 +33,21 @@ assert (3 == time());
 \Mockery::close();
 ```
 
+## Restrictions
+
+This library comes with the same restrictions as the underlying
+[`php-mock`](https://github.com/php-mock/php-mock#requirements-and-restrictions):
+
+* Only *unqualified* function calls in a namespace context can be mocked.
+  E.g. a call for `time()` in the namespace `foo` is mockable,
+  a call for `\time()` is not.
+
+* The mock has to be defined before the first call to the unqualified function
+  in the tested class. This is documented in [Bug #68541](https://bugs.php.net/bug.php?id=68541).
+  In most cases you can ignore this restriction. But if you happen to run into
+  this issue you can call [`PHPMockery::define()`](http://php-mock.github.io/php-mock-mockery/api/class-phpmock.mockery.PHPMockery.html#_define)
+  before that first call. This would define a side effectless namespaced function.
+
 # License and authors
 
 This project is free and under the WTFPL.

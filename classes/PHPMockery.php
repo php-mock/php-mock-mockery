@@ -61,4 +61,33 @@ class PHPMockery
         
         return $expectation;
     }
+    
+    /**
+     * Defines the mocked function in the given namespace.
+     *
+     * In most cases you don't have to call this method. {@link mock()}
+     * is doing this for you. But if the mock is defined after the first call in the
+     * tested class, the tested class doesn't resolve to the mock. This is
+     * documented in Bug #68541. You therefore have to define the namespaced
+     * function before the first call.
+     *
+     * Defining the function has no side effects. If the function was
+     * already defined this method does nothing.
+     *
+     * @see mock()
+     * @link https://bugs.php.net/bug.php?id=68541 Bug #68541
+     *
+     * @param string $namespace The function namespace.
+     * @param string $name      The function name.
+     */
+    public static function define($namespace, $name)
+    {
+        $builder = new MockBuilder();
+        $builder->setNamespace($namespace)
+                ->setName($name)
+                ->setFunction(function () {
+                })
+                ->build()
+                ->define();
+    }
 }
