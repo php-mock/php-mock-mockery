@@ -78,13 +78,11 @@ class PHPMockeryTest extends AbstractMockTest
         foreach (get_declared_classes() as $class) {
             if (!is_subclass_of($class, MockInterface::class)) {
                 continue;
-                
             }
             try {
                 $_mockery_methods = new \ReflectionProperty($class, "_mockery_methods");
                 $_mockery_methods->setAccessible(true);
                 $_mockery_methods->setValue(null);
-
             } catch (\ReflectionException $e) {
                 // The unaffected version mockery-0.8 didn't had that property.
             }
