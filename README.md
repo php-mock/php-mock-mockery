@@ -21,8 +21,6 @@ function mocks by calling `Mockery::close()`.
 ## Example
 
 ```php
-<?php
-
 namespace foo;
 
 use phpmock\mockery\PHPMockery;

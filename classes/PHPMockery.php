@@ -11,8 +11,6 @@ use phpmock\integration\MockDelegateFunctionBuilder;
  * Mock built-in PHP functions with Mockery.
  *
  * <code>
- * <?php
- *
  * namespace foo;
  *
  * use phpmock\mockery\PHPMockery;
