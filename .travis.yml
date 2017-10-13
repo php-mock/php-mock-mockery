@@ -8,6 +8,7 @@ cache:
 
 env:
   - MOCKERY_VERSION=dev-master
+  - MOCKERY_VERSION=~1.0.0
   - MOCKERY_VERSION=~0.9.0
   - MOCKERY_VERSION=~0.8.0
 
