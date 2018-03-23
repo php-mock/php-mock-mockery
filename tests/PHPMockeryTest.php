@@ -88,4 +88,35 @@ class PHPMockeryTest extends AbstractMockTest
             }
         }
     }
+
+    public function testMockDoubleCalls()
+    {
+        $mock = PHPMockery::mock(__NAMESPACE__, 'min');
+        $mock->twice()
+            ->with(1, 10)
+            ->andReturnValues([0, 11]);
+
+        $this->assertSame(0, min(1, 10));
+        $this->assertSame(11, min(1, 10));
+    }
+
+    public function testMockDoubleCallsWithDifferentArgs()
+    {
+        $mock = PHPMockery::mock(__NAMESPACE__, 'max');
+        $mock->with(0, 0)->andReturn(77);
+        $mock
+            ->once()
+            ->with(1, 10)
+            ->andReturn(0);
+        $mock
+            ->twice()
+            ->with(11, 20)
+            ->andReturn(10, 30);
+
+        $this->assertSame(77, max(0, 0));
+        $this->assertSame(0, max(1, 10));
+        $this->assertSame(10, max(11, 20));
+        $this->assertSame(30, max(11, 20));
+        $this->assertSame(77, max(0, 0));
+    }
 }
