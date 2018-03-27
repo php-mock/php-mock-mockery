@@ -45,8 +45,8 @@ class PHPMockery
         $delegateBuilder->build($name);
         
         $mockeryMock = Mockery::mock($delegateBuilder->getFullyQualifiedClassName());
-        $expectation = $mockeryMock->makePartial()->shouldReceive(MockDelegateFunctionBuilder::METHOD);
-        
+        $mockeryMock->makePartial()->shouldReceive(MockDelegateFunctionBuilder::METHOD);
+
         $builder = new MockBuilder();
         $builder->setNamespace($namespace)
                 ->setName($name)
@@ -57,7 +57,7 @@ class PHPMockery
         $disabler = new MockDisabler($mock);
         Mockery::getContainer()->rememberMock($disabler);
         
-        return $expectation;
+        return new ExpectationProxy($mockeryMock);
     }
     
     /**
