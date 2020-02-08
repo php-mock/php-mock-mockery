@@ -23,6 +23,15 @@ php:
 
 matrix:
   fast_finish: true
+  exclude:
+    - php: 7.4
+      env: MOCKERY_VERSION=~1.1.0
+    - php: 7.4
+      env: MOCKERY_VERSION=~1.0.0
+    - php: 7.4
+      env: MOCKERY_VERSION=~0.9.0
+    - php: 7.4
+      env: MOCKERY_VERSION=~0.8.0
 
 install:
   - composer require mockery/mockery:${MOCKERY_VERSION} squizlabs/php_codesniffer phpmd/phpmd cundd/test-flight
