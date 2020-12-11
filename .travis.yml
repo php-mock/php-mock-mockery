@@ -6,6 +6,7 @@ cache:
 
 env:
   - MOCKERY_VERSION=dev-master
+  - MOCKERY_VERSION=~1.4.0
   - MOCKERY_VERSION=~1.3.0
   - MOCKERY_VERSION=~1.2.0
   - MOCKERY_VERSION=~1.1.0
@@ -14,6 +15,7 @@ env:
   - MOCKERY_VERSION=~0.8.0
 
 php:
+  - 8.0
   - 7.4
   - 7.3
   - 7.2
@@ -24,6 +26,15 @@ php:
 matrix:
   fast_finish: true
   exclude:
+    - php: 8.0
+      env: MOCKERY_VERSION=~1.1.0
+    - php: 8.0
+      env: MOCKERY_VERSION=~1.0.0
+    - php: 8.0
+      env: MOCKERY_VERSION=~0.9.0
+    - php: 8.0
+      env: MOCKERY_VERSION=~0.8.0
+  
     - php: 7.4
       env: MOCKERY_VERSION=~1.1.0
     - php: 7.4
