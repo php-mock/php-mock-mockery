@@ -76,6 +76,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
+          ini-values: zend.assertions=1
 
       - name: Install Dependencies
         run: composer require mockery/mockery:~${{ matrix.mockery-version }} squizlabs/php_codesniffer phpmd/phpmd cundd/test-flight
