@@ -32,10 +32,8 @@ class PHPMockeryTest extends AbstractMockTest
         PHPMockery::mock($namespace, $functionName)->andReturnUsing($function);
     }
     
-    protected function setUp()
-    {
-        parent::setUp();
-        
+    protected function setUpCompat()
+    {        
         $this->workaroundMockeryIssue268();
     }
     
