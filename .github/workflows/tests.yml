@@ -103,6 +103,7 @@ jobs:
         run: vendor/bin/phpunit
         
       - name: Test Flight
+        if: matrix.php-version != '8.1'
         run: |
           vendor/bin/test-flight README.md
           vendor/bin/test-flight classes/
