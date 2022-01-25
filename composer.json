@@ -22,7 +22,7 @@
         "php-mock/php-mock-integration": "^2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4|^5"
+        "phpunit/phpunit": "^4|^5|^8"
     },
     "archive": {
         "exclude": ["/tests"]
