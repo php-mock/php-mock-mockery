@@ -64,6 +64,18 @@ jobs:
             mockery-version: '0.9.0'
           - php-version: '7.4'
             mockery-version: '0.8.0'
+            
+          # PHP 7.2 Exclusions
+          - php-version: '7.2'
+            mockery-version: '1.5.0'
+            
+          # PHP 7.1 Exclusions
+          - php-version: '7.1'
+            mockery-version: '1.5.0'
+            
+          # PHP 7.0 Exclusions
+          - php-version: '7.0'
+            mockery-version: '1.5.0'
 
     name: Mockery ${{ matrix.movkery-version }} on PHP ${{ matrix.php-version }}
     steps:
