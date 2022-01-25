@@ -83,7 +83,7 @@ jobs:
           - php-version: '7.0'
             mockery-version: '1.4.0'
 
-    name: Mockery ${{ matrix.movkery-version }} on PHP ${{ matrix.php-version }}
+    name: Mockery ${{ matrix.mockery-version }} on PHP ${{ matrix.php-version }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
