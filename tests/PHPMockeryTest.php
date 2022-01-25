@@ -33,7 +33,9 @@ class PHPMockeryTest extends AbstractMockTest
     }
     
     protected function setUpCompat()
-    {        
+    {
+        parent::setUp();
+
         $this->workaroundMockeryIssue268();
     }
     
