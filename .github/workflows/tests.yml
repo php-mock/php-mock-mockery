@@ -80,7 +80,11 @@ jobs:
             mockery-version: '0.9.0'
           - php-version: '7.4'
             mockery-version: '0.8.0'
-            
+
+          # PHP 7.3 Exclusions
+          - php-version: '7.3'
+            mockery-version: '1.6.0'
+
           # PHP 7.2 Exclusions
           - php-version: '7.2'
             mockery-version: '1.6.0'
