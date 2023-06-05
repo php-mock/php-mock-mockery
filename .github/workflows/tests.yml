@@ -90,7 +90,7 @@ jobs:
             mockery-version: '1.4.0'
             
           # PHP 7.1 Exclusions
-          - php-version: '7.0'
+          - php-version: '7.1'
             mockery-version: '1.6.0'
           - php-version: '7.1'
             mockery-version: '1.5.0'
