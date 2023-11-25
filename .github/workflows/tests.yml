@@ -34,7 +34,7 @@ jobs:
           - '0.8.0'
 
         exclude:
-          # PHP 8.3 Exclusions
+          # PHP 8.3 Exclusions 
           - php-version: '8.3'
             mockery-version: '1.3.0'
           - php-version: '8.3'
