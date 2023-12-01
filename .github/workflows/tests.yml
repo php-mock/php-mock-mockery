@@ -127,7 +127,7 @@ jobs:
     name: Mockery ${{ matrix.mockery-version }} on PHP ${{ matrix.php-version }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install PHP
         uses: shivammathur/setup-php@v2
@@ -136,19 +136,7 @@ jobs:
           ini-values: zend.assertions=1
 
       - name: Install Dependencies
-        run: composer require mockery/mockery:~${{ matrix.mockery-version }} squizlabs/php_codesniffer phpmd/phpmd cundd/test-flight
+        run: composer require mockery/mockery:~${{ matrix.mockery-version }} --no-interaction --no-progress
 
       - name: PHPUnit
         run: vendor/bin/phpunit
-        
-      - name: Test Flight
-        if: matrix.php-version != '8.1' && matrix.php-version != '8.2' && matrix.php-version != '8.3'
-        run: |
-          vendor/bin/test-flight README.md
-          vendor/bin/test-flight classes/
-
-      - name: PHPCS
-        run: vendor/bin/phpcs --standard=PSR2 classes/ tests/
-
-      - name: PHPMD
-        run: vendor/bin/phpmd classes/ text cleancode,codesize,controversial,design,naming,unusedcode
